@@ -15,7 +15,7 @@ export class EmailController {
   constructor(private readonly appService: EmailService) {}
 
   @Post('send')
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(FileInterceptor('file', { dest: './public/assets' }))
   sendEmail(
     @Body() emailBody: IEmailBody,
     @UploadedFile() file: Express.Multer.File,

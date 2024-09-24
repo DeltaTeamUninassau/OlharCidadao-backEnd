@@ -27,6 +27,7 @@ export class EmailService {
         to: email.to,
         subject: email.subject,
         text: email.body,
+        html: `<h1 style="color: #2e97b7;">${email.body}</h1>`,
         attachments: [
           {
             filename: email.filename,
