@@ -9,9 +9,9 @@ import { FileInterceptor } from '@nestjs/platform-express';
 
 import { ApiTags } from '@nestjs/swagger';
 
-import { Email } from '../../../app/entities/email';
-import { SendEmailUseCase } from '../../../app/use-cases/send-email';
-import { SendEmailBody } from '../dtos/send-email-body';
+import { Email } from '@app/entities/email';
+import { SendEmailUseCase } from '@app/use-cases/send-email';
+import { SendEmailBody } from '@infra/http/dtos/send-email-body';
 
 @ApiTags('Email')
 @Controller('email')
@@ -33,6 +33,8 @@ export class EmailController {
       cid: emailBody.cid,
     });
 
-    return this.appService.sendEmail(email);
+    const sendEmail = this.appService.sendEmail(email);
+
+    return sendEmail;
   }
 }

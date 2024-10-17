@@ -45,6 +45,7 @@ export class SendEmailUseCase {
         }
       });
     };
+
     return send();
   };
 }
